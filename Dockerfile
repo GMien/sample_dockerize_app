@@ -13,9 +13,7 @@ ENV NODE_ENV production
 WORKDIR /app
 COPY package.json .
 COPY package-lock.json .
-RUN npm config delete https-proxy
-RUN npm cache clean --force
-RUN npm install --no-package-lock --force
+RUN npm install
 COPY . .
 RUN npm run build
 
