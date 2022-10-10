@@ -16,6 +16,7 @@ COPY package-lock.json .
 RUN npm config delete https-proxy
 RUN npm cache clean --force
 RUN npm install --no-package-lock --force
+RUN npm audit fix --force
 COPY . .
 RUN npm run build
 
