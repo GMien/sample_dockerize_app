@@ -22,7 +22,6 @@ RUN npm run build
 
 FROM nginx:1.21.0-alpine AS production
 COPY --from=builder /app/build /usr/share/nginx/html
-COPY nginx.conf /etc/nginx/sites-available/sample_app.conf
-COPY /etc/nginx/sites-available/sample_app.conf /etc/nginx/sites-enabled/
+COPY nginx.conf /etc/nginx/sites-available/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
